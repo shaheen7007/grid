@@ -7,6 +7,7 @@ package com.shaheen.grid;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.AdapterView;
         import android.widget.BaseAdapter;
         import android.widget.GridView;
         import android.widget.ImageView;
@@ -47,6 +48,7 @@ public class GridViewAdapter extends BaseAdapter {
     public Object getItem(int position) {
         return images.get(position);
     }
+
 
     @Override
     public long getItemId(int position) {

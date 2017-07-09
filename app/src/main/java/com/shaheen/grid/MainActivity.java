@@ -6,9 +6,12 @@ import org.json.JSONObject;
         import android.app.ProgressDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
-        import android.widget.GridView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.Toast;
 
-        import com.android.volley.RequestQueue;
+import com.android.volley.RequestQueue;
         import com.android.volley.Response;
         import com.android.volley.VolleyError;
         import com.android.volley.toolbox.JsonArrayRequest;
@@ -23,7 +26,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     //Web api url
-    public static final String DATA_URL = "https://api.myjson.com/bins/12d4y7";
+    public static final String DATA_URL = "https://api.myjson.com/bins/k59u7";
 
     //Tag values to read from json
     public static final String TAG_IMAGE_URL = "image";
@@ -48,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
         //Calling the getData method
         getData();
+
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+
+                Toast.makeText(MainActivity.this, String.valueOf(names.get(position)), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 
     private void getData(){
@@ -103,5 +119,8 @@ public class MainActivity extends AppCompatActivity {
         //Adding adapter to gridview
         gridView.setAdapter(gridViewAdapter);
     }
+
+
+
 
 }
